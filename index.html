@@ -18,8 +18,9 @@
       var scene, aspect, camera, renderer;
       var startTime = Date.now();
       var object, object2, object3;
-      var vectorT1 = new THREE.Vector3(1, 1.5, 1);
-      var angulo1 = (-125 * Math.PI) / 180;
+      
+      var vectorT1 = new THREE.Vector3(0.5, 0, 0);
+      var angulo1 = (-90 * Math.PI) / 180;
 
       init();
       animate();
@@ -87,7 +88,7 @@
 
         //CREAR LAS GEOMETRÍAS
         ////var geometry = new THREE.SphereGeometry( 1, 12, 12 );
-        var geometry = new THREE.ConeGeometry(1, 2, 8);
+        var geometry = new THREE.ConeGeometry(1, 1, 8);
 
         //CREAR LOS MATERIALES
         var material = new THREE.MeshNormalMaterial();
@@ -116,22 +117,11 @@
           sen_x = Math.sin(angulo);
 
         t.set(
-          cos_x,
-          -sen_x,
-          0,
-          vectorT.getComponent(0),
-          sen_x,
-          cos_x,
-          0,
-          vectorT.getComponent(1),
-          0,
-          0,
-          1,
-          vectorT.getComponent(2),
-          0,
-          0,
-          0,
-          1
+          
+          cos_x,-sen_x,0,vectorT.getComponent(0),
+          sen_x,cos_x,0,vectorT.getComponent(1),
+          0,    0    ,1,vectorT.getComponent(2),
+          0,0,0,1
         );
 
         figura.applyMatrix4(t);
