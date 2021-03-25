@@ -118,13 +118,21 @@
 
         t.set(
           
-          cos_x,-sen_x,0,vectorT.getComponent(0),
-          sen_x,cos_x,0,vectorT.getComponent(1),
-          0,    0    ,1,vectorT.getComponent(2),
+          cos_x,-sen_x,0,0,
+          sen_x,cos_x,0,0,
+          0,    0    ,1,0,
           0,0,0,1
         );
 
         figura.applyMatrix4(t);
+        
+        t.set( 1, 0 , 0 , vectorT.getComponent(0),
+               0, 1 , 0 , vectorT.getComponent(1),
+               0, 0 , 1 , vectorT.getComponent(2),
+               0, 0 , 0 , 1);
+       
+        figura.applyMatrix4(t);
+        
       }
 
       function animate() {
